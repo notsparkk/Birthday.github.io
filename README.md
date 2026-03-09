@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +6,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class="floating-bg">
+        <div class="emoji">❤️</div><div class="emoji">🎂</div><div class="emoji">💖</div>
+        <div class="emoji">🍰</div><div class="emoji">💕</div><div class="emoji">🧁</div>
+    </div>
 
     <section class="slide active" id="slide1">
         <div class="content">
@@ -27,7 +31,7 @@
                 <div class="timeline-item"><span class="date">May 2024</span><p>The trip to Shimla.</p></div>
                 <div class="timeline-item"><span class="date">10th Grade</span><p>We had the cultural which was really good.</p></div>
                 <div class="timeline-item"><span class="date">January 2025</span><p>Our first kiss. And then we had a break which was terrible. Really terrible.</p></div>
-                <div class="timeline-item"><span class="date">November 2025</span><p>We met a lot during this month.</p></div>
+                <div class="timeline-item"><span class="date">November 2025</span><p>We met alot during this month.</p></div>
                 <div class="timeline-item"><span class="date">December 2, 2025</span><p>We had our first intimate moment.</p></div>
             </div>
             <h3 class="journey-continues">And the Journey Continues...........</h3>
@@ -49,18 +53,17 @@
         </div>
     </section>
 
-    <section class="slide" id="slide4">
-        <div class="content">
-            
-            <div id="lock-screen" class="lock-container">
-                <h2>🔒 Secret Vault</h2>
-                <p>You gotta type in a password to open it<br>(It's your snap Eyes only password)</p>
-                <input type="password" id="password-input" placeholder="Enter Password">
-                <button class="btn" onclick="checkPassword()">Unlock 🔓</button>
-                <p id="error-msg" style="color: red; display: none; margin-top: 10px;">Wrong password cutie! Try again.</p>
-            </div>
+    <section class="slide pink-bg" id="slide4">
+        <div class="content" id="lock-screen">
+            <h2>My Eyes Only 🔒</h2>
+            <p class="lock-text">You gotta type in a password to open it (It's you snap Eyes only password).</p>
+            <input type="password" id="snap-pass" placeholder="Enter Password" class="password-box">
+            <button class="btn unlock-btn" onclick="checkPassword()">Unlock</button>
+            <p id="error-msg" style="color: red; display: none; margin-top: 10px;">Wrong password, try again!</p>
+        </div>
 
-            <div id="collage-screen" class="collage-container" style="display: none;">
+        <div class="content" id="unlocked-screen" style="display: none;">
+            <div class="collage-container">
                 <img src="pic1.jpg" class="scatter pic1">
                 <img src="pic2.jpg" class="scatter pic2">
                 <img src="pic3.jpg" class="scatter pic3">
@@ -74,12 +77,12 @@
                 <img src="pic11.jpg" class="scatter pic11">
                 <img src="pic12.jpg" class="scatter pic12">
                 
-                <div class="center-box">
-                    This is my sexy girlll🫣🤭🤭🤭🤭
+                <div class="center-white-box">
+                    <h3>This is my sexy girlll🫣🤭🤭🤭🤭</h3>
                 </div>
             </div>
-
         </div>
+
         <div class="nav-buttons">
             <button class="btn" onclick="goToSlide(3)">⬅️ Previous</button>
             <button class="btn" onclick="goToSlide(5)">Next ➡️</button>
@@ -119,26 +122,23 @@
     </section>
 
     <script>
+        // Slide Navigation
         function goToSlide(slideNumber) {
             const slides = document.querySelectorAll('.slide');
             slides.forEach(slide => slide.classList.remove('active'));
-            
-            const targetSlide = document.getElementById('slide' + slideNumber);
-            if (targetSlide) {
-                targetSlide.classList.add('active');
-            }
+            document.getElementById('slide' + slideNumber).classList.add('active');
+            window.scrollTo(0,0);
         }
 
+        // Snapchat Password Lock Logic
         function checkPassword() {
-            const input = document.getElementById('password-input').value;
-            const errorMsg = document.getElementById('error-msg');
-            
-            if (input === "2010") {
+            const pass = document.getElementById('snap-pass').value;
+            if(pass === "2010") {
                 document.getElementById('lock-screen').style.display = 'none';
-                document.getElementById('collage-screen').style.display = 'block';
-                errorMsg.style.display = 'none';
+                document.getElementById('unlocked-screen').style.display = 'flex';
+                document.getElementById('error-msg').style.display = 'none';
             } else {
-                errorMsg.style.display = 'block';
+                document.getElementById('error-msg').style.display = 'block';
             }
         }
     </script>
