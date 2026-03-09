@@ -1,146 +1,120 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Manya!</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Custom Font */
+@font-face {
+    font-family: 'Lucy Said Ok';
+    src: url('LucySaidOkPersonalUse.ttf') format('truetype'); 
+}
 
-    <div class="floating-bg">
-        <div class="emoji">❤️</div><div class="emoji">🎂</div><div class="emoji">💖</div>
-        <div class="emoji">🍰</div><div class="emoji">💕</div><div class="emoji">🧁</div>
-    </div>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <section class="slide active" id="slide1">
-        <div class="content">
-            <img src="sweetie.gif" alt="Cute GIF" class="hero-gif">
-            <p class="sweetie-text">For my sweetie pieeeeeeeeeee............... Happpy Birthday my baby girl, my cutie patootie, my sweetheart, my soulmate. Happy birthday cutiee</p>
-        </div>
-        <div class="nav-buttons">
-            <button class="btn" onclick="goToSlide(2)">Next ➡️</button>
-        </div>
-    </section>
+body {
+    font-family: 'Lucy Said Ok', cursive, sans-serif;
+    background-color: #fff0f3; 
+    color: #333;
+    overflow-x: hidden;
+}
 
-    <section class="slide" id="slide2">
-        <div class="content">
-            <h2>Our Journey till now....</h2>
-            <div class="timeline">
-                <div class="timeline-item"><span class="date">May 2023 (9th Grade)</span><p>Our first meeting. We talked over a period of 6 months before finally starting to date each other.</p></div>
-                <div class="timeline-item"><span class="date">April 25, 2024</span><p>Our first cheek kiss.</p></div>
-                <div class="timeline-item"><span class="date">May 2024</span><p>The trip to Shimla.</p></div>
-                <div class="timeline-item"><span class="date">10th Grade</span><p>We had the cultural which was really good.</p></div>
-                <div class="timeline-item"><span class="date">January 2025</span><p>Our first kiss. And then we had a break which was terrible. Really terrible.</p></div>
-                <div class="timeline-item"><span class="date">November 2025</span><p>We met alot during this month.</p></div>
-                <div class="timeline-item"><span class="date">December 2, 2025</span><p>We had our first intimate moment.</p></div>
-            </div>
-            <h3 class="journey-continues">And the Journey Continues...........</h3>
-        </div>
-        <div class="nav-buttons">
-            <button class="btn" onclick="goToSlide(1)">⬅️ Previous</button>
-            <button class="btn" onclick="goToSlide(3)">Next ➡️</button>
-        </div>
-    </section>
+/* Lovely Color Headings */
+h1, h2, h3 {
+    color: #ff3366; 
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(255, 51, 102, 0.2);
+    font-weight: normal; 
+    text-align: center;
+}
 
-    <section class="slide" id="slide3">
-        <div class="content left-align-content">
-            <h3 class="small-heading">Now you must wonder sometimes, that why the heck does this guy love me ??? Well, I have the answer today.....</h3>
-            <p class="body-text">So yrr dekho, me loves you very much. Idk the reason, maybe tu sexy lgti hai, maybe you're kind hearted, maybe you're sweet, but na mujhe to tere baare mei sab kuchh achha lgta, especially your eyes 😍😍😍😍😍😍. Hayye yrr mai to pighal hi jaata unko dekh kr. Bss yrr, I love you bohot bohot bohot bohot bohot bohot bohot bohot bohot bohot bohot bohot bohot bohot saaraa😋😋😘😘😘😘😘😘😘😘😘😘. So never doubt my love for you. Mai bohot pyaar krta aapse 🥰🥰🥰🥰🥰.</p>
-        </div>
-        <div class="nav-buttons">
-            <button class="btn" onclick="goToSlide(2)">⬅️ Previous</button>
-            <button class="btn" onclick="goToSlide(4)">Next ➡️</button>
-        </div>
-    </section>
+/* Background Animation */
+.floating-bg {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1; pointer-events: none; overflow: hidden;
+}
+.emoji {
+    position: absolute; font-size: 2rem; opacity: 0.3;
+    animation: floatUp 10s linear infinite;
+}
+.emoji:nth-child(1) { left: 10%; animation-duration: 8s; }
+.emoji:nth-child(2) { left: 30%; animation-duration: 12s; animation-delay: 2s; }
+.emoji:nth-child(3) { left: 50%; animation-duration: 9s; animation-delay: 1s; }
+.emoji:nth-child(4) { left: 70%; animation-duration: 11s; animation-delay: 4s; }
+.emoji:nth-child(5) { left: 85%; animation-duration: 10s; }
+.emoji:nth-child(6) { left: 20%; animation-duration: 13s; animation-delay: 3s; }
 
-    <section class="slide pink-bg" id="slide4">
-        <div class="content" id="lock-screen">
-            <h2>My Eyes Only 🔒</h2>
-            <p class="lock-text">You gotta type in a password to open it (It's you snap Eyes only password).</p>
-            <input type="password" id="snap-pass" placeholder="Enter Password" class="password-box">
-            <button class="btn unlock-btn" onclick="checkPassword()">Unlock</button>
-            <p id="error-msg" style="color: red; display: none; margin-top: 10px;">Wrong password, try again!</p>
-        </div>
+@keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); }
+    100% { transform: translateY(-10vh) rotate(360deg); }
+}
 
-        <div class="content" id="unlocked-screen" style="display: none;">
-            <div class="collage-container">
-                <img src="pic1.jpg" class="scatter pic1">
-                <img src="pic2.jpg" class="scatter pic2">
-                <img src="pic3.jpg" class="scatter pic3">
-                <img src="pic4.jpg" class="scatter pic4">
-                <img src="pic5.jpg" class="scatter pic5">
-                <img src="pic6.jpg" class="scatter pic6">
-                <img src="pic7.jpg" class="scatter pic7">
-                <img src="pic8.jpg" class="scatter pic8">
-                <img src="pic9.jpg" class="scatter pic9">
-                <img src="pic10.jpg" class="scatter pic10">
-                <img src="pic11.jpg" class="scatter pic11">
-                <img src="pic12.jpg" class="scatter pic12">
-                
-                <div class="center-white-box">
-                    <h3>This is my sexy girlll🫣🤭🤭🤭🤭</h3>
-                </div>
-            </div>
-        </div>
+/* Slide Layout */
+.slide {
+    display: none; 
+    min-height: 100vh; 
+    width: 100vw;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 40px 20px 20px 20px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+.slide.active { display: flex; }
 
-        <div class="nav-buttons">
-            <button class="btn" onclick="goToSlide(3)">⬅️ Previous</button>
-            <button class="btn" onclick="goToSlide(5)">Next ➡️</button>
-        </div>
-    </section>
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    <section class="slide" id="slide5">
-        <div class="content">
-            <h2>Our little things😚😚</h2>
-            <p class="body-text">Aapko shaayad na yaad ho, but I do. Soooo, Umm 1025😘😘😘😘😘😘. I remember everything uk, everything we used to do. I remember 304, 203 and all the letters and little things we used to do. I remember how we used to look at each other all the time during classes. Mujhe aaj vi yaad hai how we used to kiss each other when no one was looking, how we used to hold hands when we sat together. Mtlb yrr those were the good times. Bohot achha lgta tha. Mai to aapke thighs pr vi haath rkh leta tha kbhi kbhi 🤭. Yaad hai ek baar Science wali ne pakad vi liya tha, but we got saved. Bohot maza aaya tha. And uk I still remember hiw we used to write letters for each other. I still imagine sometimes you writing long letters just for me. Hum na yeh sab career bnakr try krenge. Sab krenge. Bohot maza aayega ik 😁😁.</p>
-        </div>
-        <div class="nav-buttons">
-            <button class="btn" onclick="goToSlide(4)">⬅️ Previous</button>
-            <button class="btn" onclick="goToSlide(6)">Next ➡️</button>
-        </div>
-    </section>
+.content {
+    flex-grow: 1; display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    max-width: 900px; width: 100%;
+}
 
-    <section class="slide" id="slide6">
-        <div class="content">
-            <h2>Now let's talk about you........</h2>
-            <p class="body-text">So, Miss Manya Anotra, Let's talk about you. So yrr, you're a very charming person. Bade mast ho aap. Mtlb na, whatever a man can desire, you have it all. You're cute, caring, lovable, understanding, have good intentions, are beautiful, loyal, listen to me, care about our future, understand things practically and help me in many ways. Mltb you have everything, so aap na jo question krte na ki mai kbhi jaunga, mai kbhi nhi jaunga. Ulta mujhe dar lgna chahiye ki kbhi aap mujhe chhod kr mat chle jao. Anyways, so let's see, mere cutu ka favourite color hai blue, she loves chocolates, khana khana vi bohot psnd hai, beauty products ke pichhe to pagal hi ho madamji, Mujhse bohot pyaar krte ho(I hope), Favourite Song is 'Sohnea'. So yeah I know a lot about you. So yrr, overall na, you're a wonderful person, to aap na chill kra kro, never doubt yourself. Okiee 🥰🥰🥰🥰</p>
-        </div>
-        <div class="nav-buttons">
-            <button class="btn" onclick="goToSlide(5)">⬅️ Previous</button>
-            <button class="btn" onclick="goToSlide(7)">Next ➡️</button>
-        </div>
-    </section>
+/* Specific Slide Styles */
+.hero-gif { max-width: 350px; border-radius: 15px; margin-bottom: 30px; }
+.sweetie-text { font-size: 3rem; color: #ff3366; text-align: center;}
+.body-text { font-size: 2.2rem; color: #444; line-height: 1.5; text-align: center; margin-bottom: 20px;}
 
-    <section class="slide" id="slide7">
-        <div class="content">
-            <h2>A special message</h2>
-            <p class="body-text">I know bohot boring bnayi hai yeh website maine, me still learning how to do it, but one day I'll surely make a good one for you. but at last, mai just aapko kehna chahta ki you're gonna be the only one. Don't ever get demotivated by others. Logo ka kaam hai bkwas krna, just give them the idgaf attitude. Aapke paas vi nhi aayenge. So my sweetie pie, once again, HAPPY BIRTHDAY My love. Bohot achha lg rha aaj. My baby's finally 17 🥳🥳🥳🥳🥳🥳. Bss ek saal aur, then you're finally gonna go away from your toxic home. Maybe even mere saath reh skte. Achha so now I will tell you the most important thing. We're a team. We're a couple. So ab se, we are not gonna let anyone come between us. We'll always stay together okieee. You're my life dear and I don't want to lose you ever. You're the best thing that happened in my life and I will always nurture youuu. Once again, HAPPY BIRTHDAY CUTIEEE 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳. Biee bieee and thanks for watching this</p>
-        </div>
-        <div class="nav-buttons">
-            <button class="btn" onclick="goToSlide(6)">⬅️ Previous</button>
-        </div>
-    </section>
+.left-align-content { align-items: flex-start; text-align: left; }
+.left-align-content .small-heading { font-size: 2.8rem; text-align: left; margin-bottom: 20px; }
+.left-align-content .body-text { text-align: left; }
 
-    <script>
-        // Slide Navigation
-        function goToSlide(slideNumber) {
-            const slides = document.querySelectorAll('.slide');
-            slides.forEach(slide => slide.classList.remove('active'));
-            document.getElementById('slide' + slideNumber).classList.add('active');
-            window.scrollTo(0,0);
-        }
+/* Timeline */
+.timeline { border-left: 3px solid #ff3366; padding: 10px 0; margin: 20px auto; max-width: 700px;}
+.timeline-item { position: relative; padding-left: 30px; margin-bottom: 25px; text-align: left; }
+.timeline-item::before { content: "♥"; position: absolute; left: -12px; top: 0; color: #ff3366; font-size: 1.5rem; background: #fff0f3; }
+.date { display: block; color: #ff3366; font-size: 1.6rem; margin-bottom: 5px; }
+.timeline-item p { font-size: 1.6rem; color: #555; }
+.journey-continues { font-size: 2.8rem; margin-top: 30px; text-align: center;}
 
-        // Snapchat Password Lock Logic
-        function checkPassword() {
-            const pass = document.getElementById('snap-pass').value;
-            if(pass === "2010") {
-                document.getElementById('lock-screen').style.display = 'none';
-                document.getElementById('unlocked-screen').style.display = 'flex';
-                document.getElementById('error-msg').style.display = 'none';
-            } else {
-                document.getElementById('error-msg').style.display = 'block';
-            }
-        }
-    </script>
-</body>
-</html>
+/* Slide 4: Password Lock */
+.pink-bg { background-color: #ffb3c6; }
+.lock-text { font-size: 2.5rem; color: #fff; margin-bottom: 20px; text-align: center;}
+.password-box { padding: 15px; font-size: 1.5rem; border-radius: 10px; border: none; text-align: center; font-family: 'Lucy Said Ok'; margin-bottom: 20px;}
+.unlock-btn { background-color: white; color: #ff3366; }
+
+/* Slide 4: Unlocked Collage */
+.collage-container { position: relative; width: 100%; height: 60vh; display: flex; justify-content: center; align-items: center; }
+.center-white-box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 100; text-align: center; }
+.center-white-box h3 { margin: 0; font-size: 3rem; }
+
+.scatter { position: absolute; width: 120px; height: 120px; object-fit: cover; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border-radius: 10px; z-index: 1;}
+.pic1 { top: 5%; left: 5%; transform: rotate(-15deg); }
+.pic2 { top: 10%; right: 10%; transform: rotate(10deg); }
+.pic3 { bottom: 10%; left: 10%; transform: rotate(-5deg); }
+.pic4 { bottom: 5%; right: 5%; transform: rotate(20deg); }
+.pic5 { top: 40%; left: 0%; transform: rotate(-25deg); }
+.pic6 { top: 30%; right: 0%; transform: rotate(15deg); }
+.pic7 { top: -5%; left: 40%; transform: rotate(5deg); }
+.pic8 { bottom: -10%; left: 45%; transform: rotate(-10deg); }
+.pic9 { top: 20%; left: 20%; transform: rotate(12deg); }
+.pic10 { top: 25%; right: 25%; transform: rotate(-8deg); }
+.pic11 { bottom: 20%; left: 25%; transform: rotate(18deg); }
+.pic12 { bottom: 25%; right: 25%; transform: rotate(-12deg); }
+
+/* Navigation Buttons */
+.nav-buttons { width: 100%; display: flex; justify-content: center; gap: 20px; padding-bottom: 30px; margin-top: 20px;}
+.btn {
+    font-family: 'Lucy Said Ok', cursive, sans-serif; padding: 12px 30px;
+    background-color: #ff3366; color: white; border: none; border-radius: 30px;
+    font-size: 1.8rem; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3);
+}
+.btn:hover { background-color: #ff1a53; transform: scale(1.05); }
